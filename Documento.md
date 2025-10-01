@@ -1,0 +1,17 @@
+TEMA: 
+PROBLEMA: Falta de visibilidad sobre métodos de pago.
+SOLUCIÓN: Sistema en Python para analizar ventas y detectar patrones de uso.
+
+DATASET DE REFERENCIA
+FUENTE
+DEFINICIÓN
+ESTRUCTURA
+TIPOS
+ESCALA
+
+INFORMACIÓN
+PASOS
+PSEUDOCÓDIGO
+DIAGRAMA DEL PROGRAMA
+
+SUGERENCIAS Y MEJORAR APLICADAS CON COPILOT
