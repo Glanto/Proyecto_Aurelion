@@ -8,7 +8,6 @@ Actualmente, vende sin medir el comportamiento de pago, lo que impide:
 
 # SOLUCIÓN:
 - Desarrollar un sistema en Python para analizar las ventas y detectar patrones de uso de medios de pago.
-El sistema debe:
 
 # DATASET DE REFERENCIA
 
