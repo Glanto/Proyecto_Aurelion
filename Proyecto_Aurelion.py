@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import openpyxl
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 ventas=pd.read_excel("Ventas.xlsx")
 clientes=pd.read_excel('Clientes.xlsx')
@@ -10,6 +12,7 @@ productos=pd.read_excel('Productos.xlsx')
 ventas_detalle=pd.merge(ventas,detalle,on='id_venta')
 datos=pd.merge(ventas_detalle,productos,on='id_producto')
 datos=pd.merge(datos,clientes,on='id_cliente')
+datos=pd.merge(datos, productos,on='id_producto')
 
 medios,conteo=np.unique(datos['medio_pago'],return_counts=True)
 frecuencia_medios=dict(zip(medios,conteo))
@@ -19,7 +22,7 @@ for medio, total in frecuencia_medios.items():
     print(f"{medio}:{total}")
 
 productos_por_medio =(
-    datos.groupby(['medio_pago','id_producto'])['cantidad']
+    datos.groupby(['medio_pago','nombre_producto'])['cantidad']
     .sum()
     .reset_index()
 )
@@ -53,3 +56,37 @@ dias=(
 
 print('Ventas por día de la semana y medio de pago')
 print(dias)
+
+medios=list(frecuencia_medios.keys())
+conteo=list(frecuencia_medios.values())
+
+plt.figure(figsize=(6,4))
+sns.barplot(x=medios, y=conteo, palette='viridis')
+plt.title('Frecuencia de métodos de pago')
+plt.ylabel('Cantidad de transacciones')
+plt.xlabel('Método de pago')
+plt.show()
+
+plt.figure(figsize=(10,6))
+sns.barplot(data=top_productos, x='nombre_producto', y='cantidad', hue='medio_pago')
+plt.xticks(rotation=45,ha='right')
+plt.title("Top 3 productos por método de pago")
+plt.xlabel("Producto")
+plt.ylabel("Cantidad vendida")
+plt.legend(title="Medio de pago")
+plt.tight_layout()
+plt.show()
+
+plt.figure(figsize=(10,6))
+sns.barplot(data=top_ciudades, y='ciudad', x='num_clientes', hue='medio_pago', dodge=True)
+plt.title("Top 3 ciudades por medio de pago")
+plt.xlabel("Número de clientes")
+plt.ylabel("Ciudad")
+plt.show()
+
+plt.figure(figsize=(10,6))
+sns.lineplot(data=dias, x='dia_semana', y='ventas_dia', hue='medio_pago', marker='o')
+plt.title("Ventas por día de la semana y medio de pago")
+plt.xlabel("Día de la semana")
+plt.ylabel("Número de ventas")
+plt.show()
