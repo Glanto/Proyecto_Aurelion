@@ -75,18 +75,26 @@ La tienda puede invertir en mejorar los métodos de pago más demandados. Puede 
     - ventas_detalle ← unir(ventas, detalle, por="id_venta")
     - data ← unir(ventas_detalle, clientes, por="id_cliente")
     - data ← unir(data, productos, por="id_producto")
-4. Convertir columna de importes a arreglo NumPy
-    - convertir a numpy los datos de la variable importe
-5. Calcular estadísticas con NumPy
-    - sumar los importes
-    - sacar el promedio de los importes
-    - sacar la desviación estándar de los importes
-6. Calcular frecuencia de métodos de pago
-    - contar la frecuencia de los métodos de pago
-7. Calcular porcentaje de uso de cada método
-    - longitud de los datos
-    - calcular el porcentaje de los métodos de pago usando la frecuencia y el total de transacciones
+4. Analizar métodos de pago:
+    - listar los medios de pago
+    - contar los métodos de pago
+    - ver los métodos de pago más usados (contar)
+5. Analizar productos por método de pago:
+    - agrupar los métodos de pago según el id del producto
+    - sumar cantidad vendida
+    - obtener top productos por métodos de pago
+6. Analizar ciudades:
+    - agrupar datos de métodos de pago según la ciudad
+    - contar clientes por métodos de pago y ciudad
+7. Analizar días de la semana:
+    - extraer el día de la semana
+    - agrupar por medio_pago y dia_semana
+    - contar número de ventas
 8. Mostrar resultados
+    - imprimir frecuencia de medios de pago
+    - imprimir productos más vendidos por medio
+    - imprimir ciudades con mayor incidencia
+    - imprimir uso por día de semana
 
 # DIAGRAMA DEL PROGRAMA
 ![Diagrama de flujo](Diagrama_de_flujo.png)
