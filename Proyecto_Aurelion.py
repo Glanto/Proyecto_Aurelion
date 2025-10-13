@@ -4,10 +4,10 @@ import openpyxl
 import matplotlib.pyplot as plt
 import seaborn as sns
 #Se abren los archivos de la base de datos que están en .xlsx
-ventas=pd.read_excel("Ventas.xlsx")
-clientes=pd.read_excel('Clientes.xlsx')
-detalle=pd.read_excel('Detalle_ventas.xlsx')
-productos=pd.read_excel('Productos.xlsx')
+ventas=pd.read_excel("Base/Ventas.xlsx")
+clientes=pd.read_excel('Base/Clientes.xlsx')
+detalle=pd.read_excel('Base/Detalle_ventas.xlsx')
+productos=pd.read_excel('Base/Productos.xlsx')
 #Se convierten en dataframe y se unen las bases de datos mediante las columnas en común
 ventas_detalle=pd.merge(ventas,detalle,on='id_venta')
 datos=pd.merge(ventas_detalle,productos,on='id_producto')
