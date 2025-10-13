@@ -126,7 +126,7 @@ while True:
         print("Los días Miércoles usan tarjeta para comprar en la tienda.")
         print("Los días Sábados usan más los QR y transferencia para comprar la tienda.")
     elif opcion == "4":
-        print("\nBase de Datos: Contiene las tablas de transacciones, estudiantes y productos.\n")
+        print("\nBase de Datos: Contiene las tablas de Clientes, Ventas, Productos y Detalle_ventas.\n")
         print(ventas.head(5))
         print(clientes.head(5))
         print(detalle.head(5))
